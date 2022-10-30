@@ -6,12 +6,13 @@ const jwt = require('../lib/jwt');
 module.exports.signUp = async (req, res, next) => {
 	try{
 		const body = { name: req.body.name, email: req.body.email, phone: req.body.phone, password: req.body.password };
-		
+		console.log(body);
 		const user = new User(body);
-		await user.save();
-		return res.json(createResponse(user, 'Registration successful!', false));
+		console.log('user',user);
+		 await user.save();
+		return res.json(createResponse(user, 'Registration successful!',false));
 	} catch(err){
-		next(err);
+		 next(err);
 	}
 };
 

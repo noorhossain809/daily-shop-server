@@ -2,6 +2,9 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
 
+const uri = 'mongodb+srv://myDailyShop:dailyshop123@cluster0.es376.mongodb.net/?retryWrites=true&w=majority'
+
+
 let dbUrl = "";
 if (process.env.NODE_ENV === "production") {
   dbUrl = process.env.MONGODB_URI;
@@ -12,7 +15,8 @@ if (process.env.NODE_ENV === "test") {
 }
 
 if (process.env.NODE_ENV === "development") {
-  dbUrl = process.env.MONGODB_DEV_URI;
+   dbUrl = process.env.MONGODB_DEV_URI;
+
 }
 
 if (!dbUrl) {

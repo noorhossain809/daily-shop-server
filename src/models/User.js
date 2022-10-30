@@ -25,7 +25,7 @@ const UserSchema = new Schema(
 		},
 		role: {
 			type: String,
-			default: 'user',
+			default: 'merchant',
 			enum: ['admin', 'merchant', 'user'],
 		},
 		status: {
@@ -56,7 +56,7 @@ UserSchema.methods.isValidPassword = async function(password) {
 	return compare;
 };
 
-UserSchema.plugin(require('mongoose-beautiful-unique-validation'));
+ UserSchema.plugin(require('mongoose-beautiful-unique-validation'));
 
 
 module.exports =  mongoose.model('User', UserSchema);

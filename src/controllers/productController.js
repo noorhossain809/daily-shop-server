@@ -9,6 +9,7 @@ module.exports.createProduct = async (req, res, next) => {
 
     body.image = upload.public_id;
     const product = new Product(body);
+    console.log('product',product)
     await product.save();
     return res
       .status(201)
